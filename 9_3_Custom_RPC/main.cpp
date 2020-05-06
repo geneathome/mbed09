@@ -88,11 +88,11 @@ void LEDControl (Arguments *in, Reply *out)   {
 
     char strings[20];
 
-    int led = x;
+    //int led = x;
 
-    int on = y;
+    //int on = y;
 
-    int n = sprintf(strings, "/myled%d/write %d", led, on);
+    int n = sprintf(strings, "/myled2/write 1");
 
     strcpy(buffer, strings);
 
@@ -108,4 +108,83 @@ void LEDControl (Arguments *in, Reply *out)   {
 
     }
 
+    n = sprintf(strings, "/myled3/write 1");
+
+    strcpy(buffer, strings);
+
+    RPC::call(buffer, outbuf);
+
+    if (success) {
+
+        out->putData(buffer);
+
+    } else {
+
+        out->putData("Failed to execute LED control.");
+
+    }
+    wait(1.0);
+
+    n = sprintf(strings, "/myled1/write 1");
+
+    strcpy(buffer, strings);
+
+    RPC::call(buffer, outbuf);
+
+    if (success) {
+
+        out->putData(buffer);
+
+    } else {
+
+        out->putData("Failed to execute LED control.");
+
+    }
+    n = sprintf(strings, "/myled3/write 0");
+
+    strcpy(buffer, strings);
+
+    RPC::call(buffer, outbuf);
+
+    if (success) {
+
+        out->putData(buffer);
+
+    } else {
+
+        out->putData("Failed to execute LED control.");
+
+    }
+    wait(1.0);
+    n = sprintf(strings, "/myled3/write 1");
+
+    strcpy(buffer, strings);
+
+    RPC::call(buffer, outbuf);
+
+    if (success) {
+
+        out->putData(buffer);
+
+    } else {
+
+        out->putData("Failed to execute LED control.");
+
+    }
+    n = sprintf(strings, "/myled1/write 0");
+
+    strcpy(buffer, strings);
+
+    RPC::call(buffer, outbuf);
+
+    if (success) {
+
+        out->putData(buffer);
+
+    } else {
+
+        out->putData("Failed to execute LED control.");
+
+    }
+    wait(1.0);
 }

@@ -30,7 +30,7 @@ line=s.readline() # Read an echo string from K66F terminated with '\n' (RPC repl
 
 print(line)
 
-time.sleep(1)
+time.sleep(10)
 
 
 s.write(bytes("/LEDControl/run 2 1\r", 'UTF-8'))
